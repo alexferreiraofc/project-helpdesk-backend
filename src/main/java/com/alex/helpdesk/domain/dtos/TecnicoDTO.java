@@ -28,6 +28,7 @@ public class TecnicoDTO implements Serializable {
     }
 
     public TecnicoDTO(Tecnico obj) {
+        super();
         this.id = obj.getId();
         this.nome = obj.getNome();
         this.cpf = obj.getCpf();
