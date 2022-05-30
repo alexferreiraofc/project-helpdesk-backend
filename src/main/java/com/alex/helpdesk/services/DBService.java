@@ -7,9 +7,7 @@ import com.alex.helpdesk.domain.enums.Perfil;
 import com.alex.helpdesk.domain.enums.Prioridade;
 import com.alex.helpdesk.domain.enums.Status;
 import com.alex.helpdesk.repositories.ChamadoRepository;
-import com.alex.helpdesk.repositories.ClienteRepository;
 import com.alex.helpdesk.repositories.PessoaRepository;
-import com.alex.helpdesk.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
