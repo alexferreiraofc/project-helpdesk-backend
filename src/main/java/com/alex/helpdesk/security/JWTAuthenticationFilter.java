@@ -32,8 +32,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         try {
             CredenciaisDTO creds = new ObjectMapper().readValue(request.getInputStream(), CredenciaisDTO.class);
             UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(creds.getEmail(), creds.getSenha(), new ArrayList<>());
-            Authentication authentication = authenticationManager.authenticate(authenticationToken);
-            return authentication;
+            return authenticationManager.authenticate(authenticationToken);
         } catch (Exception e) {
             throw new RuntimeException(e);
 
@@ -46,7 +45,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         String username = ((UserSS) authResult.getPrincipal()).getUsername();
         String token = jwtUtil.generateToken(username);
         response.setHeader("access-control-expose-headers", "Authorization");
-        response.setHeader("Authorization", "Bearer" + token);
+        response.setHeader("Authorization", "Bearer " + token);
 
     }
 
@@ -67,4 +66,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 + "\"message\": \"Email ou senha inválidos\", "
                 + "\"path\": \"/login\"}";
     }
+
+
 }
